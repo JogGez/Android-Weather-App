@@ -59,7 +59,7 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardViewHold
     public WeatherCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LinearLayout weatherCard = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.weathercard, parent, false);
         TextView city = weatherCard.findViewById(R.id.cityNameWeatherCard);
-        city.setPaintFlags(city.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        //city.setPaintFlags(city.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         TextView weatherDescription = weatherCard.findViewById(R.id.weatherDescriptionWeatherCard);
         TextView currentTemp = weatherCard.findViewById(R.id.currentTempWeatherCard);
         TextView maxTemp = weatherCard.findViewById(R.id.maxTempWeatherCard);
