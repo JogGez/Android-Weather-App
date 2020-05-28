@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/weatherViewCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/round_rect_shape"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/cityNameWeatherCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:singleLine="true"
+        android:textColor="@color/textColor4"
+        android:textSize="30sp"
+        android:textStyle=""
+        tools:text="@string/testCity" />
+
+    <TextView
+        android:id="@+id/weatherDescriptionWeatherCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:singleLine="true"
+        android:textColor="@color/textColor4"
+        android:textSize="16sp"
+        tools:text="@string/testDescription" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:adjustViewBounds="false"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/weatherImageViewWeatherCard"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_weight="5"
+            android:contentDescription="@string/weatherIcon"
+            android:src="@drawable/ic_cloudy" />
+
+        <TextView
+            android:id="@+id/currentTempWeatherCard"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/textColor4"
+            android:textSize="90sp"
+            android:textStyle="normal"
+            tools:text="@string/testTemp1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/maxTempWeatherCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:foregroundGravity="bottom"
+                android:gravity="center_horizontal|bottom"
+                android:text="@string/testTemp1"
+                android:textAllCaps="false"
+                android:textColor="@color/textColor4"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:adjustViewBounds="false"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+                android:id="@+id/minTempWeatherCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:foregroundGravity="top"
+                android:gravity="center_horizontal|top"
+                android:textColor="@color/textColor4"
+                android:textSize="30sp"
+                tools:text="@string/testTemp1" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+

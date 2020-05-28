@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vejr</string>
+
+    <string name="addCity">Tilføj By</string>
+    <string name="citySearch">Søg</string>
+    <string name="enterCityName">Indtast By</string>
+    <string name="testCity">Odense, DK</string>
+    <string name="testTemp1">13°</string>
+    <string name="testTemp2">21° C</string>
+    <string name="testDay">Dag</string>
+    <string name="testDescription">Delvis Skyet</string>
+    <string name="weatherIcon">Vejr Ikon</string>
+    <string name="Humidity">Luftfugtighed</string>
+    <string name="Wind">Vind</string>
+    <string name="Pressure">Lufttruk</string>
+    <string name="testHumid">99%</string>
+    <string name="testWind">4 m/s</string>
+    <string name="Cloud">Skydækket</string>
+    <string name="testCloud">0%</string>
+    <string name="testPres">1008 hPa</string>
+</resources>

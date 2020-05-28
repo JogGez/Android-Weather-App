@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BackgroundColor4"
+    android:orientation="vertical"
+    tools:context=".fragments.WeatherDetailFragment"
+    android:id="@+id/cityFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/weatherCardView"
+            layout="@layout/weathercard" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/cardColor4"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewDay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testDay" />
+
+                <ImageView
+                    android:id="@+id/imageViewDay1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/weatherIcon"
+                    android:src="@mipmap/ic_launcher"
+                    tools:srcCompat="@drawable/ic_cloudy" />
+
+                <TextView
+                    android:id="@+id/textViewMaxTempDay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    android:textStyle="bold"
+                    tools:text="@string/testTemp2" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/line" />
+
+                <TextView
+                    android:id="@+id/textViewMinTempDay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/testTemp2"
+                    android:textColor="@color/textColor4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewDay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testDay" />
+
+                <ImageView
+                    android:id="@+id/imageViewDay2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/weatherIcon"
+                    android:src="@mipmap/ic_launcher"
+                    tools:srcCompat="@drawable/ic_clear" />
+
+                <TextView
+                    android:id="@+id/textViewMaxTempDay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    android:textStyle="bold"
+                    tools:text="@string/testTemp2" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/line" />
+
+                <TextView
+                    android:id="@+id/textViewMinTempDay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/testTemp2"
+                    android:textColor="@color/textColor4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewDay3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testDay" />
+
+                <ImageView
+                    android:id="@+id/imageViewDay3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/weatherIcon"
+                    android:src="@mipmap/ic_launcher"
+                    tools:srcCompat="@drawable/ic_cloudy" />
+
+                <TextView
+                    android:id="@+id/textViewMaxTempDay3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    android:textStyle="bold"
+                    tools:text="@string/testTemp2" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/line" />
+
+                <TextView
+                    android:id="@+id/textViewMinTempDay3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/testTemp2"
+                    android:textColor="@color/textColor4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewDay4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testDay" />
+
+                <ImageView
+                    android:id="@+id/imageViewDay4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/weatherIcon"
+                    android:src="@mipmap/ic_launcher"
+                    tools:srcCompat="@drawable/ic_cloudy" />
+
+                <TextView
+                    android:id="@+id/textViewMaxTempDay4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    android:textStyle="bold"
+                    tools:text="@string/testTemp2" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/line" />
+
+                <TextView
+                    android:id="@+id/textViewMinTempDay4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/testTemp2"
+                    android:textColor="@color/textColor4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewDay5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testDay" />
+
+                <ImageView
+                    android:id="@+id/imageViewDay5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/weatherIcon"
+                    android:src="@mipmap/ic_launcher"
+                    tools:srcCompat="@drawable/ic_drizzle" />
+
+                <TextView
+                    android:id="@+id/textViewMaxTempDay5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/textColor4"
+                    android:textStyle="bold"
+                    tools:text="@string/testTemp2" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/line" />
+
+                <TextView
+                    android:id="@+id/textViewMinTempDay5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/testTemp2"
+                    android:textColor="@color/textColor4" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/cardColor4"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Humidity"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/Humidity" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/weatherIcon"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/ic_humidity" />
+
+                <TextView
+                    android:id="@+id/textViewHumidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor4"
+                    android:textSize="20sp"
+                    tools:text="@string/testHumid" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Wind"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/Wind" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/weatherIcon"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/ic_air" />
+
+                <TextView
+                    android:id="@+id/textViewWind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor4"
+                    android:textSize="20sp"
+                    tools:text="@string/testWind" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cloud"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/Cloud" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/weatherIcon"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/ic_cloud_queue_black_24px" />
+
+                <TextView
+                    android:id="@+id/textViewCloudiness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor4"
+                    android:textSize="20sp"
+                    tools:text="@string/testCloud" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Pressure"
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/Pressure" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/weatherIcon"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/ic_pressure" />
+
+                <TextView
+                    android:id="@+id/textViewPressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/textColor4"
+                    android:textSize="20sp"
+                    tools:text="@string/testPres" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/deleteView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_black_24dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"/>
+
+    </LinearLayout>
+
+
+</ScrollView>
