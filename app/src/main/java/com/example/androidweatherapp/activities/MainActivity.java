@@ -1,6 +1,7 @@
 package com.example.androidweatherapp.activities;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -99,7 +100,8 @@ public class MainActivity extends AppCompatActivity implements ItemClicked, Coun
     public void onItemClicked(String cityId) {
         Log.d("TAG", "id: " + cityId);
         WeatherDetailFragment cityWeatherFragment = (WeatherDetailFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentCityWeather);
-        if (cityWeatherFragment != null) {
+        int orientation = this.getResources().getConfiguration().orientation;
+        if (cityWeatherFragment != null && orientation == Configuration.ORIENTATION_LANDSCAPE) {
             cityWeatherFragment.updateCityView(cityId);
 
         } else {
