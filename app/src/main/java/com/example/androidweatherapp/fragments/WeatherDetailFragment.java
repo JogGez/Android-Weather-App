@@ -161,7 +161,7 @@ public class WeatherDetailFragment extends Fragment {
         return view;
     }
     public void updateCityView(String City){
-        Log.d("TAG", "updateCityView: ");
+        getCurrentWeatherDataSync(City);
     }
 
     private void getCurrentWeatherDataSync(String id) {
