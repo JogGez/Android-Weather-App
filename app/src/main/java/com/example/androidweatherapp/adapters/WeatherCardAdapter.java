@@ -1,7 +1,6 @@
 package com.example.androidweatherapp.adapters;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidweatherapp.Data;
 import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
 import com.example.androidweatherapp.interfaces.ItemClicked;
 import com.example.androidweatherapp.R;
@@ -19,7 +17,6 @@ import com.example.androidweatherapp.viewholders.WeatherCardViewHolder;
 import com.example.androidweatherapp.util.WeatherImageHelper;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardViewHolder> {
 

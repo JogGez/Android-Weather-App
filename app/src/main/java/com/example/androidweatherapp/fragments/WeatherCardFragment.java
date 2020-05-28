@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidweatherapp.adapters.WeatherCardAdapter;
-import com.example.androidweatherapp.Data;
 import com.example.androidweatherapp.R;
 import com.example.androidweatherapp.api.WeatherAPI;
 import com.example.androidweatherapp.api.WeatherApiInterface;

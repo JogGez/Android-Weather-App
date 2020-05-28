@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidweatherapp.Data;
 import com.example.androidweatherapp.adapters.AddCityAdapter;
 import com.example.androidweatherapp.api.WeatherAPI;
 import com.example.androidweatherapp.api.WeatherApiInterface;
@@ -42,7 +41,6 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
     private ArrayList<com.example.androidweatherapp.api.models.findcity.List> data =  new ArrayList<>();
 
     private WeatherDatabase weatherDatabase;
-    private Data dataHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +65,6 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
         });
 
 
-        dataHandler = Data.getInstance(this);
-
         recyclerView = (RecyclerView) findViewById(R.id.recycleViewAddCity);
 
         recyclerView.setHasFixedSize(true);
@@ -91,18 +87,17 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
         String cityId = out[0];
         String city = out[1];
         String countryCode = out[2].trim();
-        dataHandler.addWeather(cityId, city, countryCode);
+        addWeather(cityId, city, countryCode);
         finish();
     }
 
     // -------------------------------- Database ---------------------------------------------------------------
 
-    private void addWeather(String city, String countryCode){
-
+    public void addWeather(String cityId, String city, String countryCode){
         Weather weather = new Weather();
+        weather.cityId = cityId;
         weather.city = city;
         weather.countryCode = countryCode;
-
         weatherDatabase.weatherDao().insert(weather);
     }
 

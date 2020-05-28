@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.androidweatherapp.Data;
 import com.example.androidweatherapp.api.WeatherAPI;
 import com.example.androidweatherapp.api.WeatherApiInterface;
 import com.example.androidweatherapp.api.models.currentweatherdata.CurrentWeatherData;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ItemClicked, Coun
     private CountdownResultReceiver countdownResultReceiverReceiver;
     private WeatherDatabase weatherDatabase;
     ImageView addCity;
-    private Data dataHandler;
+
 
     private ArrayList<com.example.androidweatherapp.api.models.findcity.List> data =  new ArrayList<>();
 
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements ItemClicked, Coun
             }
         });
 
-        dataHandler = Data.getInstance(this);
 
         countdownResultReceiverReceiver = new CountdownResultReceiver(new Handler());
         countdownResultReceiverReceiver.setReceiver(this);
