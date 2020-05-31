@@ -27,7 +27,6 @@ public class AddCityViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 activity.onItemClicked(cityId + "," + cityName.getText().toString());
-//                activity.onItemClicked(cityId + "," + cityName);
             }
         });
     }

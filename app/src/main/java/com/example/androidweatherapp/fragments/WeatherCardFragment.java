@@ -95,4 +95,44 @@ public class WeatherCardFragment extends Fragment {
             }
         });
     }
+
+    // -------------------------------- API ---------------------------------------------------------------
+
+//    private void getCurrentWeatherDataAsync(String city) {
+//        Retrofit retrofit = WeatherAPI.retrofitAPI();
+//        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
+//        Call<CurrentWeatherData> call = weatherAPIs.getCurrentWeatherByCity(city, WeatherAPI.getApiIdentifier());
+//
+//        // Synchronously Call
+//        try {
+//            CurrentWeatherData currentWeatherData = call.execute().body();
+////            textView.setText(call.execute().body().getSys().getCountry());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    private void getCurrentWeatherDataSync(String city) {
+//        Retrofit retrofit = WeatherAPI.retrofitAPI();
+//        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
+//        Call<CurrentWeatherData> call = weatherAPIs.getCurrentWeatherByCity(city, WeatherAPI.getApiIdentifier());
+//
+//        // Asynchronously Call
+//        call.enqueue(new Callback<CurrentWeatherData>() {
+//            @Override
+//            public void onResponse(Call<CurrentWeatherData> call, Response<CurrentWeatherData> response) {
+//                if (response.body() != null) {
+//                    CurrentWeatherData currentWeatherData = response.body();
+////                    textView.setText(currentWeatherData.getSys().getCountry());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                Log.e("ERROR", "onFailure: ", t);
+//            }
+//        });
+//    }
+
 }

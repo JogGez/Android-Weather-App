@@ -14,10 +14,11 @@ import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWe
 import com.example.androidweatherapp.api.models.currentweatherdatalist.List;
 import com.example.androidweatherapp.interfaces.ItemClicked;
 
+import java.text.DecimalFormat;
+
 public class WeatherCardViewHolder extends RecyclerView.ViewHolder {
 
     public List currentData;
-    private int cityId;
     private TextView city;
     private TextView weatherDescription;
     private TextView currentTemp;
@@ -37,38 +38,20 @@ public class WeatherCardViewHolder extends RecyclerView.ViewHolder {
         this.minTemp = minTemp;
         this.weatherImage = weatherImage;
 
-        itemView.setOnClickListener(v -> activity.onItemClicked(Integer.toString(cityId), currentData));
-    }
-
-    public void setCity(String city) {
-        this.city.setText(city);
-    }
-
-    public void setWeatherDescription(String weatherDescription) {
-        this.weatherDescription.setText(weatherDescription);
+        itemView.setOnClickListener(v -> activity.onItemClicked(currentData));
     }
 
     public void setCurrentWeatherData(List data){
         this.currentData = data;
-    }
-
-    public void setCurrentTemp(String currentTemp) {
-        this.currentTemp.setText(currentTemp);
-    }
-
-    public void setMaxTemp(String maxTemp) {
-        this.maxTemp.setText(maxTemp);
-    }
-
-    public void setMinTemp(String minTemp) {
-        this.minTemp.setText(minTemp);
+        this.city.setText(data.getName() + ", " + data.getSys().getCountry());
+        this.weatherDescription.setText(data.getWeather().get(0).getDescription());
+        this.currentTemp.setText(new DecimalFormat("#").format(data.getMain().getTemp()) + "°");
+        this.maxTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMax()) + "°");
+        this.minTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMin()) + "°");
     }
 
     public void setWeatherImage(Drawable weatherImage) {
         this.weatherImage.setImageDrawable(weatherImage);
     }
 
-    public void setCityId(Integer id) {
-        cityId = id;
-    }
 }

@@ -55,15 +55,11 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: API City Call
                 if (!TextUtils.isEmpty(searchCityText.getText())) {
-                    // searchForCityAsync("London");
-                    //searchForCitySync("London");
                     searchForCitySync(searchCityText.getText().toString());
                 }
             }
         });
-
 
         recyclerView = (RecyclerView) findViewById(R.id.recycleViewAddCity);
 
@@ -76,8 +72,6 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
         recyclerView.setAdapter(addCityAdapter);
 
         weatherDatabase = WeatherDatabase.getAppDatabase(this);
-        //List<Weather> weathers = getWeather();
-
 
     }
 
@@ -92,7 +86,7 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
     }
 
     @Override
-    public void onItemClicked(String string, com.example.androidweatherapp.api.models.currentweatherdatalist.List data) {
+    public void onItemClicked(com.example.androidweatherapp.api.models.currentweatherdatalist.List data) {
 
     }
 
@@ -106,11 +100,6 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
         weatherDatabase.weatherDao().insert(weather);
     }
 
-    private List<Weather> getWeather(){
-        List<Weather> weather = weatherDatabase.weatherDao().getAll();
-        return weather;
-    }
-
     // -------------------------------- API ---------------------------------------------------------------
 
     private void searchForCityAsync(String city) {
@@ -121,7 +110,6 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
         // Synchronously Call
         try {
             FindCity findCity = call.execute().body();
-//            textView.setText(call.execute().body().getSys().getCountry());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -139,7 +127,6 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
             public void onResponse(Call<FindCity> call, Response<FindCity> response) {
                 if (response.body() != null) {
                     FindCity findCity = response.body();
-//                    textView.setText(currentWeatherData.getSys().getCountry());
                     data = (ArrayList<com.example.androidweatherapp.api.models.findcity.List>) findCity.getList();
                     addCityAdapter = new AddCityAdapter(AddCityActivity.this, data);
                     recyclerView.setAdapter(addCityAdapter);

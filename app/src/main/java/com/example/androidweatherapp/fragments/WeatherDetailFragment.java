@@ -36,7 +36,6 @@ import retrofit2.Retrofit;
 public class WeatherDetailFragment extends Fragment {
 
     private List data;
-    private String cityId = "";
     private View view;
     private ImageView delete;
     private View includeView;
@@ -87,7 +86,6 @@ public class WeatherDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            cityId = getArguments().getString("cityId");
             data = (List) getArguments().getSerializable("currentData");
         }
 
@@ -151,31 +149,31 @@ public class WeatherDetailFragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Weather weather = weatherDatabase.weatherDao().getById(cityId);
+                Weather weather = weatherDatabase.weatherDao().getById(data.getId().toString());
                 weatherDatabase.weatherDao().delete(weather);
-//                getFragmentManager().beginTransaction().remove(CityWeatherFragment.this).commit();
                 ((MainActivity)getActivity()).refresh();
                 getActivity().onBackPressed();
             }
         });
 
         helper = new WeatherImageHelper();
-        updateCityView(cityId, data);
+        updateCityView(data);
 
         return view;
     }
-    public void updateCityView(String City, List data){
+    public void updateCityView(List data){
         this.data = data;
-        city.setText(data.getName());
+        city.setText(data.getName() + ", " + data.getSys().getCountry());
         weatherDescription.setText(data.getWeather().get(0).getDescription());
         currentTemp.setText(new DecimalFormat("#").format(data.getMain().getTemp()) + "°");
         maxTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMax()) + "°");
         minTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMin()) + "°");
         weatherImage.setImageDrawable(getContext().getResources().getDrawable(helper.getWeatherImage(data.getWeather().get(0).getMain())));
-        getCurrentWeatherDataSync(City, data);
+        getCurrentWeatherDataSync(data.getId().toString());
+
     }
 
-    private void getCurrentWeatherDataSync(String id, List data) {
+    private void getCurrentWeatherDataSync(String id) {
         Retrofit retrofit = WeatherAPI.retrofitAPI();
         WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
         Call<WeatherForecast> call = weatherAPIs.getWeatherForecastById(id, WeatherAPI.getApiIdentifier());

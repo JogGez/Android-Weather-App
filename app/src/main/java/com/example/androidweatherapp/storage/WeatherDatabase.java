@@ -15,8 +15,6 @@ public abstract class WeatherDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE =
                     Room.databaseBuilder(context.getApplicationContext(), WeatherDatabase.class, "user-database")
-                            // allow queries on the main thread.
-                            // Don't do this on a real app!
                             .fallbackToDestructiveMigration()
                             .allowMainThreadQueries()
                             .build();
