@@ -91,6 +91,11 @@ public class AddCityActivity extends AppCompatActivity implements ItemClicked {
         finish();
     }
 
+    @Override
+    public void onItemClicked(String string, com.example.androidweatherapp.api.models.currentweatherdatalist.List data) {
+
+    }
+
     // -------------------------------- Database ---------------------------------------------------------------
 
     public void addWeather(String cityId, String city, String countryCode){

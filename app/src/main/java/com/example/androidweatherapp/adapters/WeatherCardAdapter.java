@@ -67,6 +67,7 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardViewHold
 
     @Override
     public void onBindViewHolder(@NonNull WeatherCardViewHolder holder, int position) {
+        holder.setCurrentWeatherData(data.getList().get(position));
         holder.setCityId(data.getList().get(position).getId());
         holder.itemView.setTag(data.getList().get(position).getName());
         holder.setCity(data.getList().get(position).getName() + ", " + data.getList().get(position).getSys().getCountry());

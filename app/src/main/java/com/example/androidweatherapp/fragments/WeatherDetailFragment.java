@@ -16,7 +16,9 @@ import com.example.androidweatherapp.activities.MainActivity;
 import com.example.androidweatherapp.adapters.WeatherCardAdapter;
 import com.example.androidweatherapp.api.WeatherAPI;
 import com.example.androidweatherapp.api.WeatherApiInterface;
+import com.example.androidweatherapp.api.models.currentweatherdata.CurrentWeatherData;
 import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
+import com.example.androidweatherapp.api.models.currentweatherdatalist.List;
 import com.example.androidweatherapp.api.models.forecastweatherdata.WeatherForecast;
 import com.example.androidweatherapp.storage.Weather;
 import com.example.androidweatherapp.storage.WeatherDatabase;
@@ -33,6 +35,7 @@ import retrofit2.Retrofit;
 
 public class WeatherDetailFragment extends Fragment {
 
+    private List data;
     private String cityId = "";
     private View view;
     private ImageView delete;
@@ -85,6 +88,7 @@ public class WeatherDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             cityId = getArguments().getString("cityId");
+            data = (List) getArguments().getSerializable("currentData");
         }
 
         // This callback will only be called when MyFragment is at least Started.
@@ -156,15 +160,22 @@ public class WeatherDetailFragment extends Fragment {
         });
 
         helper = new WeatherImageHelper();
-        getCurrentWeatherDataSync(cityId);
+        updateCityView(cityId, data);
 
         return view;
     }
-    public void updateCityView(String City){
-        getCurrentWeatherDataSync(City);
+    public void updateCityView(String City, List data){
+        this.data = data;
+        city.setText(data.getName());
+        weatherDescription.setText(data.getWeather().get(0).getDescription());
+        currentTemp.setText(new DecimalFormat("#").format(data.getMain().getTemp()) + "°");
+        maxTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMax()) + "°");
+        minTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMin()) + "°");
+        weatherImage.setImageDrawable(getContext().getResources().getDrawable(helper.getWeatherImage(data.getWeather().get(0).getMain())));
+        getCurrentWeatherDataSync(City, data);
     }
 
-    private void getCurrentWeatherDataSync(String id) {
+    private void getCurrentWeatherDataSync(String id, List data) {
         Retrofit retrofit = WeatherAPI.retrofitAPI();
         WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
         Call<WeatherForecast> call = weatherAPIs.getWeatherForecastById(id, WeatherAPI.getApiIdentifier());
@@ -174,14 +185,9 @@ public class WeatherDetailFragment extends Fragment {
             public void onResponse(Call<WeatherForecast> call, Response<WeatherForecast> response) {
                 if (response.body() != null) {
                     WeatherForecast weatherForecast = response.body();
-                    city.setText(weatherForecast.getCity().getName());
-                    weatherDescription.setText(weatherForecast.getList().get(0).getWeather().get(0).getDescription());
-                    currentTemp.setText(new DecimalFormat("#").format(weatherForecast.getList().get(0).getMain().getTemp()) + "°");
-                    maxTemp.setText(new DecimalFormat("#").format(weatherForecast.getList().get(0).getMain().getTempMax()) + "°");
-                    minTemp.setText(new DecimalFormat("#").format(weatherForecast.getList().get(0).getMain().getTempMin()) + "°");
-                    weatherImage.setImageDrawable(getContext().getResources().getDrawable(helper.getWeatherImage(weatherForecast.getList().get(0).getWeather().get(0).getMain())));
 
                     LocalDate date = LocalDate.now();
+                    date = date.plusDays(1);
                     Day1Text.setText(date.getDayOfWeek().toString().substring(0,2));
                     date = date.plusDays(1);
                     Day2Text.setText(date.getDayOfWeek().toString().substring(0,2));
@@ -213,8 +219,11 @@ public class WeatherDetailFragment extends Fragment {
                     wind.setText(weatherForecast.getList().get(0).getWind().getSpeed() + "m/s");
                     cloudiness.setText(weatherForecast.getList().get(0).getClouds().getAll() + "%");
                     pressure.setText(weatherForecast.getList().get(0).getMain().getPressure() + "hPa");
+
                 }
             }
+
+
 
             @Override
             public void onFailure(Call call, Throwable t) {

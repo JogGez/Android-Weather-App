@@ -9,10 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidweatherapp.api.models.currentweatherdata.CurrentWeatherData;
+import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
+import com.example.androidweatherapp.api.models.currentweatherdatalist.List;
 import com.example.androidweatherapp.interfaces.ItemClicked;
 
 public class WeatherCardViewHolder extends RecyclerView.ViewHolder {
 
+    public List currentData;
     private int cityId;
     private TextView city;
     private TextView weatherDescription;
@@ -33,7 +37,7 @@ public class WeatherCardViewHolder extends RecyclerView.ViewHolder {
         this.minTemp = minTemp;
         this.weatherImage = weatherImage;
 
-        itemView.setOnClickListener(v -> activity.onItemClicked(Integer.toString(cityId)));
+        itemView.setOnClickListener(v -> activity.onItemClicked(Integer.toString(cityId), currentData));
     }
 
     public void setCity(String city) {
@@ -42,6 +46,10 @@ public class WeatherCardViewHolder extends RecyclerView.ViewHolder {
 
     public void setWeatherDescription(String weatherDescription) {
         this.weatherDescription.setText(weatherDescription);
+    }
+
+    public void setCurrentWeatherData(List data){
+        this.currentData = data;
     }
 
     public void setCurrentTemp(String currentTemp) {

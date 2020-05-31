@@ -15,6 +15,7 @@ import com.example.androidweatherapp.api.WeatherAPI;
 import com.example.androidweatherapp.api.WeatherApiInterface;
 import com.example.androidweatherapp.api.models.currentweatherdata.CurrentWeatherData;
 import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
+import com.example.androidweatherapp.api.models.currentweatherdatalist.List;
 import com.example.androidweatherapp.fragments.WeatherDetailFragment;
 import com.example.androidweatherapp.interfaces.ItemClicked;
 import com.example.androidweatherapp.R;
@@ -25,7 +26,6 @@ import com.example.androidweatherapp.storage.WeatherDatabase;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -97,16 +97,22 @@ public class MainActivity extends AppCompatActivity implements ItemClicked, Coun
     }
 
     @Override
-    public void onItemClicked(String cityId) {
+    public void onItemClicked(String string) {
+
+    }
+
+    @Override
+    public void onItemClicked(String cityId, List data) {
         Log.d("TAG", "id: " + cityId);
         WeatherDetailFragment cityWeatherFragment = (WeatherDetailFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentCityWeather);
         int orientation = this.getResources().getConfiguration().orientation;
         if (cityWeatherFragment != null && orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            cityWeatherFragment.updateCityView(cityId);
+            cityWeatherFragment.updateCityView(cityId, data);
 
         } else {
             Bundle bundle = new Bundle();
             bundle.putString("cityId", cityId);
+            bundle.putSerializable("currentData", data);
             WeatherDetailFragment newFragment = new WeatherDetailFragment();
             newFragment.setArguments(bundle);
 
@@ -120,83 +126,83 @@ public class MainActivity extends AppCompatActivity implements ItemClicked, Coun
 
     // -------------------------------- API ---------------------------------------------------------------
 
-    private void getCurrentWeatherDataAsync(String city) {
-        Retrofit retrofit = WeatherAPI.retrofitAPI();
-        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
-        Call<CurrentWeatherData> call = weatherAPIs.getCurrentWeatherByCity(city, WeatherAPI.getApiIdentifier());
+//    private void getCurrentWeatherDataAsync(String city) {
+//        Retrofit retrofit = WeatherAPI.retrofitAPI();
+//        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
+//        Call<CurrentWeatherData> call = weatherAPIs.getCurrentWeatherByCity(city, WeatherAPI.getApiIdentifier());
+//
+//        // Synchronously Call
+//        try {
+//            CurrentWeatherData currentWeatherData = call.execute().body();
+////            textView.setText(call.execute().body().getSys().getCountry());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    private void getCurrentWeatherDataSync(String city) {
+//        Retrofit retrofit = WeatherAPI.retrofitAPI();
+//        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
+//        Call<CurrentWeatherData> call = weatherAPIs.getCurrentWeatherByCity(city, WeatherAPI.getApiIdentifier());
+//
+//        // Asynchronously Call
+//        call.enqueue(new Callback<CurrentWeatherData>() {
+//            @Override
+//            public void onResponse(Call<CurrentWeatherData> call, Response<CurrentWeatherData> response) {
+//                if (response.body() != null) {
+//                    CurrentWeatherData currentWeatherData = response.body();
+////                    textView.setText(currentWeatherData.getSys().getCountry());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                Log.e("ERROR", "onFailure: ", t);
+//            }
+//        });
+//    }
 
-        // Synchronously Call
-        try {
-            CurrentWeatherData currentWeatherData = call.execute().body();
-//            textView.setText(call.execute().body().getSys().getCountry());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void getCurrentWeatherDataSync(String city) {
-        Retrofit retrofit = WeatherAPI.retrofitAPI();
-        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
-        Call<CurrentWeatherData> call = weatherAPIs.getCurrentWeatherByCity(city, WeatherAPI.getApiIdentifier());
-
-        // Asynchronously Call
-        call.enqueue(new Callback<CurrentWeatherData>() {
-            @Override
-            public void onResponse(Call<CurrentWeatherData> call, Response<CurrentWeatherData> response) {
-                if (response.body() != null) {
-                    CurrentWeatherData currentWeatherData = response.body();
-//                    textView.setText(currentWeatherData.getSys().getCountry());
-                }
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-                Log.e("ERROR", "onFailure: ", t);
-            }
-        });
-    }
-
-    private void getCurrentWeatherDataListSync(String ids) {
-        Retrofit retrofit = WeatherAPI.retrofitAPI();
-        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
-        Call<CurrentWeatherDataList> call = weatherAPIs.getCurrentWeatherByList(ids, WeatherAPI.getApiIdentifier());
-
-        // Asynchronously Call
-        call.enqueue(new Callback<CurrentWeatherDataList>() {
-            @Override
-            public void onResponse(Call<CurrentWeatherDataList> call, Response<CurrentWeatherDataList> response) {
-                if (response.body() != null) {
-                    CurrentWeatherDataList currentWeatherData = response.body();
-
-//                    textView.setText(currentWeatherData.getSys().getCountry());
-                }
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-                Log.e("ERROR", "onFailure: ", t);
-            }
-        });
-    }
+//    private void getCurrentWeatherDataListSync(String ids) {
+//        Retrofit retrofit = WeatherAPI.retrofitAPI();
+//        WeatherApiInterface weatherAPIs = retrofit.create(WeatherApiInterface.class);
+//        Call<CurrentWeatherDataList> call = weatherAPIs.getCurrentWeatherByList(ids, WeatherAPI.getApiIdentifier());
+//
+//        // Asynchronously Call
+//        call.enqueue(new Callback<CurrentWeatherDataList>() {
+//            @Override
+//            public void onResponse(Call<CurrentWeatherDataList> call, Response<CurrentWeatherDataList> response) {
+//                if (response.body() != null) {
+//                    CurrentWeatherDataList currentWeatherData = response.body();
+//
+////                    textView.setText(currentWeatherData.getSys().getCountry());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                Log.e("ERROR", "onFailure: ", t);
+//            }
+//        });
+//    }
 
 
     // -------------------------------- Database ---------------------------------------------------------------
 
-    private List<Weather> getWeather(){
-        List<Weather> weather = weatherDatabase.weatherDao().getAll();
-        String ids = "";
-        for(Weather v : weather){
-            ids += v.cityId + ",";
-            Log.d("WEATHER LIST", v.cityId + v.city + v.countryCode);
-        }
-        ids = ids.replaceAll(",$", "");
-        Log.d("WEATHER LIST", ids);
-        getCurrentWeatherDataListSync(ids);
-
-
-        return weather;
-    }
+//    private List<Weather> getWeather(){
+//        List<Weather> weather = weatherDatabase.weatherDao().getAll();
+//        String ids = "";
+//        for(Weather v : weather){
+//            ids += v.cityId + ",";
+//            Log.d("WEATHER LIST", v.cityId + v.city + v.countryCode);
+//        }
+//        ids = ids.replaceAll(",$", "");
+//        Log.d("WEATHER LIST", ids);
+//        getCurrentWeatherDataListSync(ids);
+//
+//
+//        return weather;
+//    }
 
     // -------------------------------- Counter Service ---------------------------------------------------------------
 
