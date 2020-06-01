@@ -155,13 +155,15 @@ public class WeatherDetailFragment extends Fragment {
     }
     public void updateCityView(List data){
         this.data = data;
-        city.setText(data.getName() + ", " + data.getSys().getCountry());
-        weatherDescription.setText(data.getWeather().get(0).getDescription());
-        currentTemp.setText(new DecimalFormat("#").format(data.getMain().getTemp()) + "°");
-        maxTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMax()) + "°");
-        minTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMin()) + "°");
-        weatherImage.setImageDrawable(getContext().getResources().getDrawable(helper.getWeatherImage(data.getWeather().get(0).getMain())));
-        getCurrentWeatherDataSync(data.getId().toString());
+        if(data != null){
+            city.setText(data.getName() + ", " + data.getSys().getCountry());
+            weatherDescription.setText(data.getWeather().get(0).getDescription());
+            currentTemp.setText(new DecimalFormat("#").format(data.getMain().getTemp()) + "°");
+            maxTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMax()) + "°");
+            minTemp.setText(new DecimalFormat("#").format(data.getMain().getTempMin()) + "°");
+            weatherImage.setImageDrawable(getContext().getResources().getDrawable(helper.getWeatherImage(data.getWeather().get(0).getMain())));
+            getCurrentWeatherDataSync(data.getId().toString());
+        }
 
     }
 
