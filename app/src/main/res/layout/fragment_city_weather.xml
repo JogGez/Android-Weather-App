@@ -74,8 +74,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/testTemp2"
-                    android:textColor="@color/textColor4" />
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testTemp2" />
             </LinearLayout>
 
             <LinearLayout
@@ -123,8 +123,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/testTemp2"
-                    android:textColor="@color/textColor4" />
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testTemp2" />
             </LinearLayout>
 
             <LinearLayout
@@ -172,8 +172,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/testTemp2"
-                    android:textColor="@color/textColor4" />
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testTemp2" />
             </LinearLayout>
 
             <LinearLayout
@@ -221,8 +221,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/testTemp2"
-                    android:textColor="@color/textColor4" />
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testTemp2" />
             </LinearLayout>
 
             <LinearLayout
@@ -270,8 +270,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/testTemp2"
-                    android:textColor="@color/textColor4" />
+                    android:textColor="@color/textColor4"
+                    tools:text="@string/testTemp2" />
             </LinearLayout>
 
         </LinearLayout>
