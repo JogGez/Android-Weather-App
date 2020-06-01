@@ -141,10 +141,12 @@ public class WeatherDetailFragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Weather weather = weatherDatabase.weatherDao().getById(data.getId().toString());
-                weatherDatabase.weatherDao().delete(weather);
-                ((MainActivity)getActivity()).refresh();
-                getActivity().onBackPressed();
+                if (data != null){
+                    Weather weather = weatherDatabase.weatherDao().getById(data.getId().toString());
+                    weatherDatabase.weatherDao().delete(weather);
+                    ((MainActivity)getActivity()).refresh();
+                    getActivity().onBackPressed();
+                }
             }
         });
 
