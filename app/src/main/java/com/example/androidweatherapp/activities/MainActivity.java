@@ -7,30 +7,16 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
-import com.example.androidweatherapp.api.WeatherAPI;
-import com.example.androidweatherapp.api.WeatherApiInterface;
-import com.example.androidweatherapp.api.models.currentweatherdata.CurrentWeatherData;
-import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
 import com.example.androidweatherapp.api.models.currentweatherdatalist.List;
 import com.example.androidweatherapp.fragments.WeatherDetailFragment;
 import com.example.androidweatherapp.interfaces.ItemClicked;
 import com.example.androidweatherapp.R;
 import com.example.androidweatherapp.service.CountdownResultReceiver;
 import com.example.androidweatherapp.service.TimerService;
-import com.example.androidweatherapp.storage.Weather;
 import com.example.androidweatherapp.storage.WeatherDatabase;
-
-import java.io.IOException;
 import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity implements ItemClicked, CountdownResultReceiver.GetResultInterface {
     private CountdownResultReceiver countdownResultReceiverReceiver;

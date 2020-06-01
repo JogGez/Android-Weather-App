@@ -6,12 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.androidweatherapp.adapters.WeatherCardAdapter;
 import com.example.androidweatherapp.R;
 import com.example.androidweatherapp.api.WeatherAPI;
@@ -19,9 +17,7 @@ import com.example.androidweatherapp.api.WeatherApiInterface;
 import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
 import com.example.androidweatherapp.storage.Weather;
 import com.example.androidweatherapp.storage.WeatherDatabase;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

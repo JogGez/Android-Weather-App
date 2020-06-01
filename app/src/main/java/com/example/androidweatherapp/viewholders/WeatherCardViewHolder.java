@@ -5,12 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.androidweatherapp.api.models.currentweatherdata.CurrentWeatherData;
-import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
 import com.example.androidweatherapp.api.models.currentweatherdatalist.List;
 import com.example.androidweatherapp.interfaces.ItemClicked;
 

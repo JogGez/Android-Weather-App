@@ -7,27 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
-
 import com.example.androidweatherapp.R;
 import com.example.androidweatherapp.activities.MainActivity;
-import com.example.androidweatherapp.adapters.WeatherCardAdapter;
 import com.example.androidweatherapp.api.WeatherAPI;
 import com.example.androidweatherapp.api.WeatherApiInterface;
-import com.example.androidweatherapp.api.models.currentweatherdata.CurrentWeatherData;
-import com.example.androidweatherapp.api.models.currentweatherdatalist.CurrentWeatherDataList;
 import com.example.androidweatherapp.api.models.currentweatherdatalist.List;
 import com.example.androidweatherapp.api.models.forecastweatherdata.WeatherForecast;
 import com.example.androidweatherapp.storage.Weather;
 import com.example.androidweatherapp.storage.WeatherDatabase;
 import com.example.androidweatherapp.util.WeatherImageHelper;
-
 import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.util.Date;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

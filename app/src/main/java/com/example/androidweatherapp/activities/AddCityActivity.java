@@ -9,28 +9,21 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.androidweatherapp.adapters.AddCityAdapter;
 import com.example.androidweatherapp.api.WeatherAPI;
 import com.example.androidweatherapp.api.WeatherApiInterface;
-
 import com.example.androidweatherapp.api.models.findcity.FindCity;
-
 import com.example.androidweatherapp.interfaces.ItemClicked;
 import com.example.androidweatherapp.R;
 import com.example.androidweatherapp.storage.Weather;
 import com.example.androidweatherapp.storage.WeatherDatabase;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-import static java.lang.Integer.parseInt;
 
 public class AddCityActivity extends AppCompatActivity implements ItemClicked {
 

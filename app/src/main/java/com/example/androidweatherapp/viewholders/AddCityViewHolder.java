@@ -2,15 +2,11 @@ package com.example.androidweatherapp.viewholders;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.androidweatherapp.interfaces.ItemClicked;
 
-import org.w3c.dom.Text;
 
 public class AddCityViewHolder extends RecyclerView.ViewHolder {
 

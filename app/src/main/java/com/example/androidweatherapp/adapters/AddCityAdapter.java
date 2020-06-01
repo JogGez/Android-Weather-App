@@ -5,12 +5,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.androidweatherapp.R;
-import com.example.androidweatherapp.api.models.findcity.List;
 import com.example.androidweatherapp.viewholders.AddCityViewHolder;
 
 import java.util.ArrayList;
